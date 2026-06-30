@@ -11,8 +11,10 @@ import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-nati
 import { useState, useEffect, useRef } from 'react';
 
 
-// Ele permite detectar quando o usuário chacoalha o aparelho.
+// Ele permite detectar quando o usuário chacoalha o aparelho. -API 1
 import { Accelerometer } from 'expo-sensors';
+// Ele permite fazer vibrações no celular. - API 2
+import * as Haptics from 'expo-haptics';
 
 
 // Lista de categorias disponíveis no aplicativo.
@@ -67,6 +69,7 @@ export default function App() {
 
           // Escolhe uma posição aleatória da lista.
           const random = foods[Math.floor(Math.random() * foods.length)];
+          Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
 
           // Atualiza a tela com a comida sorteada.
           setResult(random);
@@ -139,6 +142,7 @@ export default function App() {
 
             // Escolhe uma comida aleatória.
             const random = foods[Math.floor(Math.random() * foods.length)];
+             Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success); 
 
             // Atualiza o resultado.
             setResult(random);

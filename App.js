@@ -86,8 +86,28 @@ export default function App() {
 
     <ScrollView style={styles.container}>
 
-      {/* Título do aplicativo */}
-      <Text style={styles.title}>🍽️ ShakEat</Text>
+
+  <Text style={styles.title}>🍽️ ShakEat</Text>
+
+  {/* Área onde aparecem as mensagens e o resultado do sorteio */}
+  <View style={styles.resultArea}>
+
+    {/* Se o usuário ainda não escolheu uma categoria, mostra um aviso */}
+    {!selectedCategory && (
+      <Text style={styles.hint}>Escolha uma categoria! 👆</Text>
+    )}
+
+    {/* Depois que escolher a categoria, pede para chacoalhar o celular */}
+    {selectedCategory && !result && (
+      <Text style={styles.hint}>Chacoalhe o celular! 📱</Text>
+    )}
+
+    {/* Quando o sorteio acontecer, exibe o resultado na tela */}
+    {result && (
+      <Text style={styles.result}>{result}</Text>
+    )}
+
+  </View>
 
       {/* Área que exibe todas as categorias */}
       <View style={styles.grid}>
@@ -157,31 +177,7 @@ export default function App() {
 
       )}
 
-      {/* Área onde aparecem as mensagens e o resultado */}
-      <View style={styles.resultArea}>
-
-        {/* Mensagem quando nenhuma categoria foi escolhida */}
-        {!selectedCategory && (
-          <Text style={styles.hint}>
-            Escolha uma categoria! 👆
-          </Text>
-        )}
-
-        {/* Mensagem quando já escolheu categoria mas ainda não sorteou */}
-        {selectedCategory && !result && (
-          <Text style={styles.hint}>
-            Chacoalhe o celular! 📱
-          </Text>
-        )}
-
-        {/* Exibe o resultado quando houver sorteio */}
-        {result && (
-          <Text style={styles.result}>
-            {result}
-          </Text>
-        )}
-
-      </View>
+     
 
       {/* Barra de status do celular */}
       <StatusBar style="auto" />

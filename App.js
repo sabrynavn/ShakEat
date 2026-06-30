@@ -69,8 +69,7 @@ export default function App() {
 
           // Escolhe uma posição aleatória da lista.
           const random = foods[Math.floor(Math.random() * foods.length)];
-          Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);  
           // Atualiza a tela com a comida sorteada.
           setResult(random);
         }
@@ -162,9 +161,7 @@ export default function App() {
 
             // Escolhe uma comida aleatória.
             const random = foods[Math.floor(Math.random() * foods.length)];
-             Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success); 
-
-            // Atualiza o resultado.
+             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);  
             setResult(random);
           }}
         >
